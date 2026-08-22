@@ -1,0 +1,23 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+* {
+    font-size: 16px;
+    font-family: v.$primary-font;
+    color: v.$white;
+}
+
+html {
+    scroll-behavior: smooth; // para que la pagina se desplace más fluida
+    background-color: v.$black;
+}
+
+body {
+    overflow-x: hidden;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+img {
+    max-width: 100%; //revisar si hace falta
+}

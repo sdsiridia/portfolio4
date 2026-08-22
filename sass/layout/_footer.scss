@@ -1,0 +1,37 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: v.$gray;
+    @include m.breakpoint(tablet){
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+    .navbar{
+
+        ul{
+            @include m.reset_list();
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            gap:23px;
+            margin-top: 16px;
+            padding-bottom: 40px;
+            
+        }
+        // a{
+        //     @include m.button();
+        //     color: v.$white;
+        //     &:hover{
+        //         color: v.$green;
+        //     }
+        // }
+
+    }
+}
