@@ -69,3 +69,28 @@
 //   margin-top: 24px;
 //   text-decoration: none;
 // }
+
+@mixin underline($width, $bottom, $heigth) {
+  &::after {
+    content: '';
+    background-color: $green;
+    display: inline-block;
+    width: $width;
+    height: $heigth;
+    position: absolute;
+    left: 0;
+    bottom: $bottom;
+  }
+}
+
+@mixin line($top) {
+  &::before {
+    content: '';
+    background-color: v.$white;
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: $top;
+  }
+}

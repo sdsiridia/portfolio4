@@ -1,0 +1,166 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include m.breakpoint(tablet) {
+        margin-right: -16px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 20px;
+    }
+
+    @include m.breakpoint(desktopxl) {
+        width: 80%;
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+
+    &::before {
+        content: url(../../src/img/Oval.svg);
+        position: absolute;
+        left: 90%;
+        bottom: 48%;
+
+        @include m.breakpoint(tablet) {
+            bottom: 7%;
+            left: 92%;
+            z-index: 1;
+        }
+
+        @include m.breakpoint(desktopxl) {
+            bottom: 21%;
+            left: 46%;
+        }
+    }
+
+    &::after {
+        content: url(../../src/img/elipses.svg);
+        position: absolute;
+        right: 57%;
+        top: -1%;
+
+        @include m.breakpoint(tablet) {
+            display: none;
+        }
+    }
+
+    img {
+        background-color: v.$gray;
+        width: 60%;
+        z-index: 1;
+        margin-bottom: 40px;
+
+        @include m.breakpoint(tablet) {
+            grid-column: 2 / 2;
+            grid-row: span 3;
+            width: 100%;
+            justify-self: end;
+            background-color: v.$gray_2;
+            z-index: 0;
+        }
+
+        @include m.breakpoint(tablethorizontal) {
+            margin-right: 2px;
+        }
+
+        @include m.breakpoint(desktop) {
+            margin-right: 5px;
+        }
+
+        @include m.breakpoint(desktopxl) {
+            margin-right: 0px;
+        }
+
+    }
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+        width: 100%;
+        text-align: center;
+
+        span {
+            font-size: 40px;
+            position: relative;
+            @include m.underline(95%, 0px, 5px);
+
+            @include m.breakpoint(tablet) {
+                font-size: 55px;
+            }
+
+            @include m.breakpoint(desktopxl) {
+                font-size: 75px;
+            }
+        }
+
+        @include m.breakpoint(tablet) {
+            grid-row: 1 / 1;
+            margin-bottom: 0px;
+            font-size: 55px;
+            line-height: 65px;
+            text-align: left;
+            position: relative;
+
+            &::before {
+                content: url(../../src/img/elipses.svg);
+                position: absolute;
+                right: 46%;
+                top: -36%;
+
+                @include m.breakpoint(desktopxl) {
+                    left: -42%;
+                    top: -42%;
+                }
+            }
+        }
+
+        @include m.breakpoint(desktopxl) {
+            font-size: 75px;
+            width: 125%;
+            line-height: 80px;
+        }
+    }
+
+    p {
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: 400;
+
+        @include m.breakpoint(tablet) {
+            align-self: end;
+            text-align: left;
+            width: 90%;
+        }
+
+        @include m.breakpoint(desktopxl) {
+            width: 82%;
+            font-size: 25px;
+            align-self: center;
+        }
+
+    }
+
+    .contactme {
+        @include m.reset-link(v.$white);
+        font-weight: 700;
+        position: relative;
+        @include m.underline(100%, -15px, 3px);
+        margin-bottom: 80px;
+
+        @include m.breakpoint(tablet) {
+            display: inline-block;
+            justify-self: start;
+            margin-bottom: 60px;
+        }
+
+        @include m.breakpoint(desktopxl) {
+            font-size: 24px;
+            align-self: start;
+        }
+    }
+}

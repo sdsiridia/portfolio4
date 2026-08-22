@@ -1,0 +1,85 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.skils {
+
+    // @include m.line(-20px);
+    &::before {
+        content: '';
+        background-color: v.$white;
+        display: inline-block;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        top: -20px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 50px;
+    position: relative;
+
+    @include m.breakpoint(tablet) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: start;
+    }
+
+    @include m.breakpoint(desktopxl) {
+        margin-left: 8%;
+        margin-right: 8%;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    div:first-child {
+        margin-top: 10px;
+
+        @include m.breakpoint(desktopxl) {
+            margin-top: 60px;
+        }
+    }
+
+    .skil {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        @include m.breakpoint(tablet) {
+            align-items: start;
+        }
+
+        h2 {
+            font-size: 32px;
+
+            @include m.breakpoint(desktopxl) {
+                font-size: 55px;
+            }
+        }
+
+        p {
+            @include m.breakpoint(desktopxl) {
+                font-size: 20px;
+            }
+        }
+    }
+
+    &::after {
+        content: url(../../src/img/elipses.svg);
+        position: absolute;
+        left: 53%;
+        top: 100%;
+
+        @include m.breakpoint(tablet) {
+            left: 75%;
+            top: 80%;
+        }
+
+        @include m.breakpoint(desktopxl) {
+            left: 86%;
+            top: 74%;
+        }
+    }
+}
