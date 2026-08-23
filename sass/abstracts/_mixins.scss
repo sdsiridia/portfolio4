@@ -86,7 +86,7 @@
 @mixin line($top) {
   &::before {
     content: '';
-    background-color: v.$white;
+    background-color: $white;
     display: inline-block;
     width: 100%;
     height: 2px;

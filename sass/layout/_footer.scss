@@ -1,37 +1,240 @@
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as m;
 
-footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+footer {
     background-color: v.$gray;
-    @include m.breakpoint(tablet){
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0 30px;
-    }
-    .navbar{
+    margin-top: 20px;
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: -16px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 80px;
 
-        ul{
-            @include m.reset_list();
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: row;
-            gap:23px;
-            margin-top: 16px;
-            padding-bottom: 40px;
-            
+    @include m.breakpoint(desktopxl) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include m.breakpoint(desktopxl) {
+            align-items: baseline;
+            padding-left: 16%;
+            padding-right: 16%;
         }
-        // a{
-        //     @include m.button();
-        //     color: v.$white;
-        //     &:hover{
-        //         color: v.$green;
-        //     }
-        // }
 
+        h2 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 25px;
+
+            @include m.breakpoint(tablet) {
+                font-size: 55px;
+            }
+
+            @include m.breakpoint(desktopxl) {
+                font-size: 70px;
+            }
+        }
+
+        p {
+            width: 75%;
+            text-align: center;
+            margin-bottom: 60px;
+            color: v.$gray;
+
+            @include m.breakpoint(tablet) {
+                width: 65%;
+                font-size: 18px;
+            }
+
+            @include m.breakpoint(desktopxl) {
+                font-size: 24px;
+                text-align: left;
+                width: 90%;
+            }
+        }
     }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 70px;
+
+        @include m.breakpoint(tablet) {
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+
+        @include m.breakpoint(desktopxl) {
+            padding-left: 16%;
+            padding-right: 16%;
+        }
+
+        .form-content {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                color: v.$gray;
+            }
+
+            input {
+                color: v.$white;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                border-bottom: 2px solid v.$white;
+
+                &:not(:placeholder-shown):valid {
+                    border-bottom: 2px solid v.$green;
+                }
+
+                &:not(:placeholder-shown):invalid {
+                    border-bottom: 2px solid red;
+                }
+            }
+
+            input:not(:placeholder-shown):invalid+.error {
+                opacity: 1;
+            }
+
+            .error {
+                display: block;
+                opacity: 0;
+                align-self: flex-end;
+                color: red;
+                position: relative;
+
+                &::before {
+                    content: url(../../src/img/error.svg);
+                    position: absolute;
+                    bottom: 135%;
+                    right: 0%;
+                }
+            }
+
+            textarea {
+                color: v.$white;
+                border: none;
+                outline: none;
+                resize: none;
+                background-color: transparent;
+                border-bottom: 2px solid v.$white;
+            }
+        }
+
+        .btn {
+            align-self: flex-end;
+            color: v.$white;
+            font-size: 20px;
+            font-weight: 500;
+            border: 0px;
+            background-color: transparent;
+            width: fit-content;
+            display: inline-block;
+            justify-self: start;
+            position: relative;
+            @include m.underline(100%, -15px, 3px);
+
+            @include m.breakpoint(tablet) {}
+
+            @include m.breakpoint(desktopxl) {}
+        }
+
+        div:last-of-type {
+            position: relative;
+
+            label {
+                &::after {
+                    content: url(../../src/img/elipses.svg);
+                    position: absolute;
+                    right: 55%;
+                    top: 0%;
+
+                    @include m.breakpoint(tablet) {
+                        right: 105%;
+                        top: 80%;
+                    }
+
+                    @include m.breakpoint(desktopxl) {
+                        right: 215%;
+                        top: 80%;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        position: relative;
+        @include m.line(0px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+
+        @include m.breakpoint(tablet) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        @include m.breakpoint(desktopxl) {
+            grid-column: span 2;
+            margin-left: 8%;
+            margin-right: 8%;
+        }
+
+        a {
+            @include m.reset-link(v.$white);
+            margin-top: 30px;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: bold;
+
+            @include m.breakpoint(tablet) {
+                margin-top: 35px;
+                margin-bottom: 35px;
+            }
+
+            @include m.breakpoint(desktopxl) {
+                margin-top: 35px;
+                margin-bottom: 55px;
+            }
+        }
+
+        .redes {
+            @include m.reset-list;
+            display: flex;
+            gap: 15px;
+            margin-bottom: 50px;
+
+            @include m.breakpoint(tablet) {
+                margin-top: 35px;
+                margin-bottom: 35px;
+            }
+
+            @include m.breakpoint(desktopxl) {
+                margin-top: 35px;
+                margin-bottom: 55px;
+            }
+
+            li>a>svg {
+                width: 19px;
+                height: 19px;
+                fill: v.$white;
+
+                &:hover {
+                    fill: v.$green;
+                }
+            }
+        }
+    }
+
 }

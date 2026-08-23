@@ -7,6 +7,10 @@
     margin: 0 auto;
     padding: 16px;
     overflow-x: hidden;
+
+    @include m.breakpoint(desktopxl) {
+        max-width: 1900px;
+    }
 }
 
 
@@ -21,7 +25,36 @@ header {
     margin-right: auto;
     margin-bottom: 0px;
 
-    // .logo {}
+    @include m.breakpoint(tablet) {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-image: linear-gradient(to right, v.$black 49%, v.$gray_2 49%);
+        margin-right: -16px;
+        padding-right: 32px;
+        align-items: baseline;
+    }
+
+    @include m.breakpoint(desktopxl) {
+        width: 80%;
+        margin: 0px;
+        margin-left: 8%;
+        margin-right: 8%;
+        margin-top: -16px;
+        background-image: linear-gradient(to right, v.$black 50%, v.$gray_2 50%);
+    }
+
+    .logo {
+        @include m.breakpoint(tablet) {
+            display: inline-block;
+            justify-self: start;
+        }
+
+        @include m.breakpoint(desktopxl) {
+            font-size: 25px
+        }
+    }
+
     a {
         @include m.reset-link(v.$white);
         margin-top: 30px;
@@ -45,5 +78,15 @@ header {
         &:hover {
             fill: v.$green;
         }
+
+        @include m.breakpoint(desktopxl) {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    @include m.breakpoint(tablet) {
+        justify-self: end;
+        margin-bottom: 10px;
     }
 }

@@ -155,7 +155,7 @@
 
     }
 
-    .contactme {
+    &__contactme {
         @include m.reset-link(v.$white);
         font-weight: 700;
         position: relative;

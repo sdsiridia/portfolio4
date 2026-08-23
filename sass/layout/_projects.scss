@@ -1,0 +1,170 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.projects {
+    margin-bottom: 100px;
+    position: relative;
+    @include m.line(-26px);
+
+
+    @include m.breakpoint(tablet) {
+        &::before {
+            display: none;
+        }
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+
+    @include m.breakpoint(desktopxl) {
+        margin-left: 8%;
+        margin-right: 8%;
+        gap: 35px;
+    }
+
+
+    .project {
+        margin-top: 90px;
+        display: flex;
+        justify-content: space-between;
+        align-content: baseline;
+
+        @include m.breakpoint(tablet) {
+            grid-column: span 2;
+        }
+
+        @include m.breakpoint(desktopxl) {
+            margin-bottom: 70px;
+        }
+
+        h2 {
+            font-size: 40px;
+            position: relative;
+            bottom: 1%;
+
+            @include m.breakpoint(tablet) {
+                font-size: 55px
+            }
+
+            @include m.breakpoint(desktopxl) {
+                font-size: 100px
+            }
+        }
+
+
+        &__contactme {
+            @include m.reset-link(v.$white);
+            font-weight: 700;
+            position: relative;
+            @include m.underline(100%, -15px, 3px);
+            margin-bottom: 80px;
+
+            @include m.breakpoint(tablet) {
+                top: 20%;
+            }
+
+            @include m.breakpoint(desktopxl) {
+                @include m.underline(100%, 0px, 3px);
+                font-size: 24px;
+                top: 40%;
+            }
+        }
+    }
+
+
+    article {
+        @include m.breakpoint(desktopxl) {
+            position: relative;
+        }
+
+        img {
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 18px;
+
+            @include m.breakpoint(tablet) {
+                font-size: 20px
+            }
+
+            @include m.breakpoint(desktopxl) {
+                font-size: 25px
+            }
+        }
+
+        ul {
+            @include m.reset-list;
+            gap: 20px;
+            margin-bottom: 35px;
+
+            @include m.breakpoint(tablet) {
+                margin-bottom: 25px;
+            }
+
+            li {
+                font-size: 18px;
+
+                @include m.breakpoint(tablet) {
+                    font-size: 16px;
+                }
+
+                @include m.breakpoint(desktopxl) {
+                    font-size: 20px;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+
+
+        .view {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+
+            @include m.breakpoint(tablet) {
+                margin-bottom: 45px;
+            }
+
+            @include m.breakpoint(desktopxl) {
+                flex-direction: column;
+                position: absolute;
+                bottom: 23%;
+                width: 100%;
+                height: 77%;
+                margin: 0px;
+                justify-content: center;
+                opacity: 0;
+
+                &:hover {
+                    z-index: 1;
+                    opacity: 1;
+                    background-color: v.$gray_2;
+                }
+            }
+
+            a {
+                @include m.reset-link(v.$white);
+                position: relative;
+                @include m.underline(100%, -15px, 3px);
+                font-size: 18px;
+                font-weight: 600;
+                word-spacing: 6px;
+                letter-spacing: 3px;
+
+                @include m.breakpoint(tablet) {
+                    font-size: 16px;
+                }
+
+                @include m.breakpoint(desktopxl) {
+                    font-size: 24px;
+                    align-self: center;
+                }
+            }
+        }
+
+    }
+}
