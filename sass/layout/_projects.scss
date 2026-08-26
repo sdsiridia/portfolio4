@@ -4,7 +4,9 @@
 .projects {
     margin-bottom: 100px;
     position: relative;
-    @include m.line(-26px);
+    margin-left: 5%;
+    margin-right: 5%;
+    // @include m.line(-26px);
 
 
     @include m.breakpoint(tablet) {

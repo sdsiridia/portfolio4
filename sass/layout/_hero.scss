@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     // .hero__svg {
     //     z-index: 10;
     // }
@@ -116,17 +115,7 @@
             text-align: left;
             position: relative;
 
-            &::before {
-                content: url(../../src/img/elipses.svg);
-                position: absolute;
-                right: 46%;
-                top: -36%;
 
-                @include m.breakpoint(desktopxl) {
-                    left: -42%;
-                    top: -42%;
-                }
-            }
         }
 
         @include m.breakpoint(desktopxl) {
@@ -135,6 +124,19 @@
             line-height: 80px;
         }
     }
+
+    // &::before {
+    //     content: url(../../src/img/elipses.svg);
+    //     position: absolute;
+    //     right: 46%;
+    //     top: -36%;
+
+    //     @include m.breakpoint(desktopxl) {
+    //         left: -42%;
+    //         top: -42%;
+    //     }
+    // }
+
 
     p {
         margin-bottom: 30px;

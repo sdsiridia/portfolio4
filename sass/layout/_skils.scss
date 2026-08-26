@@ -3,16 +3,17 @@
 
 .skils {
 
-    // @include m.line(-20px);
-    &::before {
-        content: '';
-        background-color: v.$white;
-        display: inline-block;
-        width: 100%;
-        height: 2px;
-        position: absolute;
-        top: -20px;
-    }
+    @include m.line(-20px);
+
+    // &::before {
+    //     content: '';
+    //     background-color: v.$white;
+    //     display: inline-block;
+    //     width: 100%;
+    //     height: 2px;
+    //     position: absolute;
+    //     top: -20px;
+    // }
 
     display: flex;
     flex-direction: column;
@@ -66,11 +67,22 @@
         }
     }
 
-    &::after {
-        content: url(../../src/img/elipses.svg);
+    // &::after {
+    //     content: url(../../src/img/elipses.svg);
+    //     position: absolute;
+    //     left: 53%;
+    //     top: 100%;
+
+    //     @include m.breakpoint(tablet) {
+    //         left: 75%;
+    //         top: 80%;
+    //     }
+    &__elipses-2 {
         position: absolute;
         left: 53%;
         top: 100%;
+        margin-bottom: 20px;
+
 
         @include m.breakpoint(tablet) {
             left: 75%;
@@ -81,5 +93,16 @@
             left: 86%;
             top: 74%;
         }
+    }
+
+    &__linea {
+        position: absolute;
+        content: '';
+        background-color: v.$white;
+        display: inline-block;
+        width: 90%;
+        height: 2px;
+        // left: 3%;
+        top: 110%;
     }
 }
