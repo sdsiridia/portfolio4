@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 
+
 @mixin breakpoint($bp) {
   @if $bp ==tablet {
     @media (min-width: $bp-tablet) {
@@ -92,5 +93,10 @@
     height: 2px;
     position: absolute;
     top: $top;
+
+    @include breakpoint(tablet) {
+      width: 90%;
+      margin-left: 5%;
+    }
   }
 }

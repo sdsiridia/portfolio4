@@ -31,8 +31,8 @@
 
         @include m.breakpoint(tablet) {
             bottom: 7%;
-            left: 92%;
-            z-index: 1;
+            left: 91%;
+            z-index: 10;
         }
 
         @include m.breakpoint(desktopxl) {
@@ -49,7 +49,7 @@
         z-index: 1;
 
         @include m.breakpoint(tablet) {
-            display: none;
+            right: 75%;
         }
     }
 

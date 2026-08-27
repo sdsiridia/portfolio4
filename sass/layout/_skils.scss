@@ -104,5 +104,12 @@
         height: 2px;
         // left: 3%;
         top: 110%;
+
+        @include m.breakpoint(tablet) {
+            display: none;
+            // left: auto;
+            // width: 100%;
+            // top: 74%;
+        }
     }
 }
