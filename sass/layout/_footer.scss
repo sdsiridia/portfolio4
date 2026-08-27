@@ -145,6 +145,12 @@ footer {
 
             @include m.breakpoint(tablet) {}
 
+            @include m.breakpoint(desktop) {
+                &:hover {
+                    color: v.$green;
+                }
+            }
+
             @include m.breakpoint(desktopxl) {}
         }
 

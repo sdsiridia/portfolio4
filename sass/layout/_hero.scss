@@ -164,6 +164,10 @@
         @include m.underline(100%, -15px, 3px);
         margin-bottom: 80px;
 
+        &:hover {
+            color: v.$green;
+        }
+
         @include m.breakpoint(tablet) {
             display: inline-block;
             justify-self: start;
